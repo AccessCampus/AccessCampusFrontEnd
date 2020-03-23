@@ -1,0 +1,11 @@
+<section class="row">
+  <article class="column">
+    <%= form_for @changeset, Routes.location_path(@conn, :create), fn f -> %>
+      <label>
+        Name: <%= text_input f, :name %>
+        <%= error_tag f, :name%>
+      </label>
+      <%= submit "Create new location", class: "btn btn-primary" %>
+    <% end %>
+  </article>
+</section>
