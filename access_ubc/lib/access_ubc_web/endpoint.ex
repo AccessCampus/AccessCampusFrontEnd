@@ -7,7 +7,7 @@ defmodule AccessUbcWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_access_ubc_key",
-    signing_salt: "DzCkn60Y"
+    signing_salt: "9qA1jscX"
   ]
 
   socket "/socket", AccessUbcWeb.UserSocket,

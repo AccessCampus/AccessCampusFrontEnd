@@ -20,7 +20,10 @@ defmodule AccessUbcWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", AccessUbcWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", AccessUbcWeb do
+    pipe_through :api
+
+    get "/buildings", BuildingController, :index
+    get "/buildings/:id", BuildingController, :show
+  end
 end
