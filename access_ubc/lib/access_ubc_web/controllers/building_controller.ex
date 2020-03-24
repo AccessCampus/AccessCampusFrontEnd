@@ -21,12 +21,19 @@ defmodule AccessUbcWeb.BuildingController do
   end
 
   def show(conn, %{"id" => id}) do
-    building = Locations.get_building!(id)
-    render(conn, "show.json", building: building)
+    building = Locations.get_building(id)
+
+    if building do
+      render(conn, "show.json", building: building)
+    else
+      conn
+      |> put_status(:not_found)
+      |> render("show.json", building: building)
+    end
   end
 
   def update(conn, %{"id" => id, "building" => building_params}) do
-    building = Locations.get_building!(id)
+    building = Locations.get_building(id)
 
     with {:ok, %Building{} = building} <- Locations.update_building(building, building_params) do
       render(conn, "show.json", building: building)
@@ -34,7 +41,7 @@ defmodule AccessUbcWeb.BuildingController do
   end
 
   def delete(conn, %{"id" => id}) do
-    building = Locations.get_building!(id)
+    building = Locations.get_building(id)
 
     with {:ok, %Building{}} <- Locations.delete_building(building) do
       send_resp(conn, :no_content, "")

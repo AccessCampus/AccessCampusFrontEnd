@@ -35,7 +35,7 @@ defmodule AccessUbc.Locations do
       ** (Ecto.NoResultsError)
 
   """
-  def get_building!(id), do: Repo.get!(Building, id)
+  def get_building(id), do: Repo.get(Building, id)
 
   @doc """
   Creates a building.
