@@ -4,7 +4,7 @@ import React from "react";
 import axios from "axios";
 
 class App extends React.Component {
-    state = {building: "", entrances: [{lat: null, long: null}]};
+    state = {building: "", entrances: []};
 
     onSearchSubmit = async term => {
         let search = parseInt(term, 10);
@@ -31,7 +31,7 @@ class App extends React.Component {
                 <h1>Access UBC</h1>
                 <div>Search Icon</div>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
-                <SearchMap coords={this.state.entrances} name={this.state.building}/>
+                <SearchMap entrances={this.state.entrances} name={this.state.building}/>
             </div>
         );
     };
