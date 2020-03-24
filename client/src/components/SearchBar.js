@@ -1,8 +1,7 @@
-import SearchMap from "./SearchMap";
 import React from "react";
 
-class SearchApp extends React.Component {
-    state = {term: ""}
+class SearchBar extends React.Component {
+    state = { term: "" }
 
     onFormSubmit = (event) => {
         event.preventDefault();
@@ -11,18 +10,17 @@ class SearchApp extends React.Component {
 
     render = () => {
         return (
-            <div className="search-app">
+            <div className="search-bar">
                 <form onSubmit={this.onFormSubmit}>
                     <div className="ui search">
                         <div style={{ fontSize: "25px", margin: "15px 0" }}>
-                            <label />
-                        Building
-                    </div>
+                            Building
+                        </div>
                         <div className="ui icon input">
                             <input
                                 className="prompt"
                                 type="text"
-                                placeholder="Type Building ID here..."
+                                placeholder="Type term ID here..."
                                 value={this.state.term}
                                 onChange={e => this.setState({ term: e.target.value })} />
                             <i className="search icon"></i>
@@ -30,10 +28,9 @@ class SearchApp extends React.Component {
                         <div className="results" />
                     </div>
                 </form>
-                <SearchMap />
-            </div>
+            </div >
         );
     }
 }
 
-export default SearchApp;
+export default SearchBar;

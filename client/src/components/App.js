@@ -1,11 +1,10 @@
-import SearchApp from "./SearchApp";
-
+import SearchBar from "./SearchBar";
+import SearchMap from "./SearchMap";
 import React from "react";
 import axios from "axios";
 
-
 class App extends React.Component {
-    state = {building: "", entrances: []};
+    state = {building: "", entrances: [{lat: null, long: null}]};
 
     onSearchSubmit = async term => {
         let search = parseInt(term, 10);
@@ -13,19 +12,16 @@ class App extends React.Component {
             params: { query: term }
         });
         let changed = false;
-        console.log(res.data.data[0]["entrances"]);
         res.data.data.forEach((data) => {
             if (data["id"] === search) {
                 changed = true;
                 this.setState({building: data["name"]});
                 this.setState({entrances: data["entrances"]});
-                for(let i = 0; i < this.state.entrances.length; i++) {
-                    console.log(this.state.entrances[i]);
-                }
             }
         });
         if(!changed) {
             this.setState({building: "not found"});
+            this.setState({entrances: [{lat: "not found", long: "not found"}]})
         }
     };
 
@@ -34,8 +30,8 @@ class App extends React.Component {
             <div className="app">
                 <h1>Access UBC</h1>
                 <div>Search Icon</div>
-                <SearchApp onSubmit={this.onSearchSubmit}/>
-                {this.state.building}
+                <SearchBar onSubmit={this.onSearchSubmit}/>
+                <SearchMap coords={this.state.entrances} name={this.state.building}/>
             </div>
         );
     };
