@@ -7,13 +7,13 @@ class App extends React.Component {
     state = {building: "", entrances: []};
 
     onSearchSubmit = async term => {
-        let search = parseInt(term, 10);
+        let search = term;
         const res = await axios.get("http://localhost:4000/api/buildings", {
             params: { query: term }
         });
         let changed = false;
         res.data.data.forEach((data) => {
-            if (data["id"] === search) {
+            if (data["name"] === search) {
                 changed = true;
                 this.setState({building: data["name"]});
                 this.setState({entrances: data["entrances"]});
