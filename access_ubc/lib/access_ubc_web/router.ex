@@ -2,6 +2,7 @@ defmodule AccessUbcWeb.Router do
   use AccessUbcWeb, :router
 
   pipeline :browser do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
@@ -10,7 +11,10 @@ defmodule AccessUbcWeb.Router do
   end
 
   pipeline :api do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :fetch_flash
   end
 
   scope "/", AccessUbcWeb do
