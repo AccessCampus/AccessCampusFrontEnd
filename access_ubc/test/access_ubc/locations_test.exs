@@ -6,9 +6,9 @@ defmodule AccessUbc.LocationsTest do
   describe "buildings" do
     alias AccessUbc.Locations.Building
 
-    @valid_attrs %{name: "some name"}
-    @update_attrs %{name: "some updated name"}
-    @invalid_attrs %{name: nil}
+    @valid_attrs %{entrances: [], name: "some name"}
+    @update_attrs %{entrances: [], name: "some updated name"}
+    @invalid_attrs %{entrances: nil, name: nil}
 
     def building_fixture(attrs \\ %{}) do
       {:ok, building} =
@@ -31,6 +31,7 @@ defmodule AccessUbc.LocationsTest do
 
     test "create_building/1 with valid data creates a building" do
       assert {:ok, %Building{} = building} = Locations.create_building(@valid_attrs)
+      assert building.entrances == []
       assert building.name == "some name"
     end
 
@@ -41,6 +42,7 @@ defmodule AccessUbc.LocationsTest do
     test "update_building/2 with valid data updates the building" do
       building = building_fixture()
       assert {:ok, %Building{} = building} = Locations.update_building(building, @update_attrs)
+      assert building.entrances == []
       assert building.name == "some updated name"
     end
 

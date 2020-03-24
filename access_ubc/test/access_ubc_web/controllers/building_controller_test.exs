@@ -5,12 +5,14 @@ defmodule AccessUbcWeb.BuildingControllerTest do
   alias AccessUbc.Locations.Building
 
   @create_attrs %{
+    entrances: [],
     name: "some name"
   }
   @update_attrs %{
+    entrances: [],
     name: "some updated name"
   }
-  @invalid_attrs %{name: nil}
+  @invalid_attrs %{entrances: nil, name: nil}
 
   def fixture(:building) do
     {:ok, building} = Locations.create_building(@create_attrs)
@@ -37,6 +39,7 @@ defmodule AccessUbcWeb.BuildingControllerTest do
 
       assert %{
                "id" => id,
+               "entrances" => [],
                "name" => "some name"
              } = json_response(conn, 200)["data"]
     end
@@ -58,6 +61,7 @@ defmodule AccessUbcWeb.BuildingControllerTest do
 
       assert %{
                "id" => id,
+               "entrances" => [],
                "name" => "some updated name"
              } = json_response(conn, 200)["data"]
     end

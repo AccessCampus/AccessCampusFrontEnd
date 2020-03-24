@@ -12,6 +12,7 @@ defmodule AccessUbcWeb.BuildingView do
 
   def render("building.json", %{building: building}) do
     %{id: building.id,
-      name: building.name}
+      name: building.name,
+      entrances: building.entrances}
   end
 end

@@ -3,6 +3,7 @@ defmodule AccessUbc.Locations.Building do
   import Ecto.Changeset
 
   schema "buildings" do
+    field :entrances, {:array, :map}
     field :name, :string
 
     timestamps()
@@ -11,7 +12,7 @@ defmodule AccessUbc.Locations.Building do
   @doc false
   def changeset(building, attrs) do
     building
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :entrances])
+    |> validate_required([:name, :entrances])
   end
 end

@@ -24,6 +24,7 @@ defmodule AccessUbcWeb.Router do
     pipe_through :api
 
     get "/buildings", BuildingController, :index
-    get "/buildings/:id", BuildingController, :show
+    get "/buildings:id", BuildingController, :show
+    post "/buildings", BuildingController, :create
   end
 end
