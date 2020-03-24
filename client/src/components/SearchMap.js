@@ -4,19 +4,56 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 class SearchMap extends React.Component {
     constructor(props) {
         super(props);
-        console.log("hello");
-        this.state = this.props.entrances;
+        this.state = { entrances: [{}] };
     };
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.entrances !== state.entrances) {
+            return {
+                entrances: props.entrances
+            }
+        }
+        return null;
+    }
 
     mapStyles = {
         width: '50%',
         height: '50%',
     };
 
+    displayCenter = () => {
+        if (this.state.entrances[0] === undefined) {
+            return {
+                lat: 49.267854,
+                lng: -123.24983199999997
+            }
+        } else {
+            let centerLat = 0;
+            let centerLong = 0;
+            this.state.entrances.forEach((coord) => {
+                centerLat += coord.lat;
+                centerLong += coord.long;
+            })
+            centerLat = centerLat/this.state.entrances.length;
+            centerLong = centerLong/this.state.entrances.length;
+            return {
+                lat: centerLat,
+                lng: centerLong
+            }
+        }
+    }
+
+    displayZoom = () => {
+        if (this.state.entrances[0] === undefined) {
+            return 15;
+        } else {
+            return 18;
+        }
+    }
+
     displayMarkers = () => {
         if (this.state.entrances !== undefined && this.state.entrances !== null) {
-            console.log(this.state.entrances[1]);
-            return this.state.entrances.map((entrance, index) => {            
+            return this.state.entrances.map((entrance, index) => {
                 return <Marker key={index} id={index} position={{
                     lat: entrance.lat,
                     lng: entrance.long
@@ -31,9 +68,10 @@ class SearchMap extends React.Component {
             <div className="search-map">
                 <Map
                     google={this.props.google}
-                    zoom={15}
+                    zoom={this.displayZoom()}
                     style={this.mapStyles}
-                    initialCenter={{ lat: 49.267854, lng: -123.24983199999997 }}>
+                    initialCenter={this.displayCenter()}
+                    center={this.displayCenter()}>
                     {this.displayMarkers()}
                 </Map>
             </div>
