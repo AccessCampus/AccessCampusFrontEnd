@@ -13,10 +13,10 @@ config :access_ubc,
 # Configures the endpoint
 config :access_ubc, AccessUbcWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "B4zehMpV0+rpZTN0D/kPTiMK/awYv3++pGGF/iX4KbCY8CV4inwaIQ0E7pmCcVAU",
+  secret_key_base: "AveFyk4lndB5I8287brMhRunWu2aRIoebesf4PH4zRX7SbQVTQmtPy9EWKhJevl6",
   render_errors: [view: AccessUbcWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: AccessUbc.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: "PluzNmgp"]
+  live_view: [signing_salt: "2SVixJ4+"]
 
 # Configures Elixir's Logger
 config :logger, :console,
