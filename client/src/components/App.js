@@ -1,4 +1,4 @@
-import SearchBar from "./SearchBar";
+import SearchDropdown from "./SearchDropdown";
 import SearchMap from "./SearchMap";
 import React from "react";
 import axios from "axios";
@@ -30,7 +30,7 @@ class App extends React.Component {
             <div className="app">
                 <h1>Access UBC</h1>
                 <div>Search Icon</div>
-                <SearchBar onSubmit={this.onSearchSubmit}/>
+                <SearchDropdown onSubmit={this.onSearchSubmit}/>
                 <SearchMap entrances={this.state.entrances} name={this.state.building}/>
             </div>
         );

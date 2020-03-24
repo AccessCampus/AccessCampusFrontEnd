@@ -1,6 +1,6 @@
 import React from "react";
 
-class SearchBar extends React.Component {
+class SearchDropdown extends React.Component {
     state = { term: "" }
 
     onFormSubmit = (event) => {
@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
 
     render = () => {
         return (
-            <div className="search-bar">
+            <div className="search-dropdown">
                 <form onSubmit={this.onFormSubmit}>
                     <div className="ui search">
                         <div style={{ fontSize: "25px", margin: "15px 0" }}>
@@ -33,4 +33,4 @@ class SearchBar extends React.Component {
     }
 }
 
-export default SearchBar;
+export default SearchDropdown;
