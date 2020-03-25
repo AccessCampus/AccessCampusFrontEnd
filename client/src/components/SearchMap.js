@@ -73,7 +73,9 @@ class SearchMap extends React.Component {
                     zoom={this.displayZoom()}
                     style={this.mapStyles}
                     initialCenter={this.displayCenter()}
-                    center={this.displayCenter()}>
+                    center={this.displayCenter()}
+                    fullscreenControl={false}
+                    mapTypeControl={false}>
                     {this.displayMarkers()}
                 </Map>
             </div>
