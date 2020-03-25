@@ -3,8 +3,11 @@ import React from "react";
 import { Dropdown, Menu } from "semantic-ui-react";
 
 class SearchDropdown extends React.Component {
-    state = { term: "", allnames: [] }
-
+    constructor (props) {
+        super(props);
+        this.state = { term: "", allNames: [] };
+    }
+    
     static getDerivedStateFromProps(props, state) {
         if (props.allNames !== state.allNames) {
             return {
@@ -13,28 +16,19 @@ class SearchDropdown extends React.Component {
         }
         return null;
     }
+    
+    options = [];
 
     returnAllNames = () => {
-        let result = [];
-        if (this.state.allNames !== undefined) {
+        if (this.state !== undefined && this.state.allNames.length !== 0 && this.options.length == 0) {
             for (let i = 0; i < this.state.allNames.length; i++) {
-                result.push({key: i, text: this.state.allNames[i], value: i});
+                this.options.push({key: i, text: this.state.allNames[i], value: i});
             }
         }
-        console.log(result);
-        return result;
     }
-    
-    options = this.returnAllNames();
-    // [
-    //     { key: 1, text: "ICICS", value: 1 },
-    //     { key: 2, text: "AMS Nest", value: 2 },
-    //     { key: 3, text: "Geology Building", value: 3 },
-    //     { key: 4, text: "Biology Building", value: 4 },
-    //     { key: 5, text: "Chemistry", value: 5 },
-    // ]
 
     onDropDownClick = () => {
+        this.returnAllNames();
         this.props.onClick();
     }
 

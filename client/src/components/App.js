@@ -29,12 +29,12 @@ class App extends React.Component {
         }
     }
 
-    onDropDownClick = async term => {
+    onDropDownClick = async () => {
         const res = await axios.get("http://localhost:4000/api/buildings");
         let tempAllNames = [];
         res.data.data.forEach((data) => {
             tempAllNames.push(data["name"]);
-        })
+        });
         this.setState({ allNames: tempAllNames});
     }
 
@@ -45,11 +45,11 @@ class App extends React.Component {
                 <div>Search Icon</div>
                 <SearchDropdown
                     onSubmit={this.onDropdownSubmit}
-                    onClick={this.onDropDownClick} />
+                    onClick={this.onDropDownClick}
+                    allNames={this.state.allNames} />
                 <SearchMap
                     entrances={this.state.entrances}
-                    name={this.state.building}
-                    allNames = {this.state.allNames}/>
+                    name={this.state.building}/>
             </div>
         );
     };
