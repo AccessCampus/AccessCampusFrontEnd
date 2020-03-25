@@ -37,8 +37,8 @@ class SearchMap extends React.Component {
                 centerLat += coord.lat;
                 centerLong += coord.long;
             })
-            centerLat = centerLat/this.state.entrances.length;
-            centerLong = centerLong/this.state.entrances.length;
+            centerLat = centerLat / this.state.entrances.length;
+            centerLong = centerLong / this.state.entrances.length;
             return {
                 lat: centerLat,
                 lng: centerLong
@@ -57,14 +57,21 @@ class SearchMap extends React.Component {
     displayMarkers = () => {
         if (this.state.entrances !== undefined && this.state.entrances !== null) {
             return this.state.entrances.map((entrance, index) => {
-                return <Marker key={index} id={index} position={{
-                    lat: entrance.lat,
-                    lng: entrance.long
-                }}/>
+                return (
+                    <Marker
+                        key={index}
+                        id={index}
+                        position={{
+                            lat: entrance.lat,
+                            lng: entrance.long
+                        }}
+                        onClick={() => window.open(`http://maps.google.com/maps?q=loc:${entrance.lat},${entrance.long}`, "_blank")}
+                    />
+                );
             })
         }
     }
-    
+
     render = () => {
         return (
             <div className="search-map">
