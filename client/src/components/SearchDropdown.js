@@ -32,11 +32,11 @@ class SearchDropdown extends React.Component {
                 <div className="ui search">
                     <span style={{ fontSize: "25px", margin: "15px 0" }}>
                         Building
-                        </span>
+                    </span>
                     <span>
                         <Menu compact>
                             <Dropdown
-                                text="Building"
+                                text={this.state.term === "" ? "Building" : this.state.term}
                                 options={this.options}
                                 value={this.state.term}
                                 onChange={(e) => {
@@ -47,7 +47,6 @@ class SearchDropdown extends React.Component {
                                 simple item />
                         </Menu>
                     </span>
-                    <div className="results" />
                 </div>
             </div >
         );
