@@ -1,13 +1,14 @@
+import "../stylesheets/search_dropdown.css"
 import ReactDOM from "react-dom";
 import React from "react";
 import { Dropdown, Menu } from "semantic-ui-react";
 
 class SearchDropdown extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = { term: "", allNames: [] };
     }
-    
+
     static getDerivedStateFromProps(props, state) {
         if (props.allNames !== state.allNames) {
             return {
@@ -21,13 +22,13 @@ class SearchDropdown extends React.Component {
         this.returnAllNames();
         this.props.onClick();
     }
-    
+
     options = [];
 
     returnAllNames = () => {
         if (this.state !== undefined && this.state.allNames.length !== 0 && this.options.length === 0) {
             for (let i = 0; i < this.state.allNames.length; i++) {
-                this.options.push({key: i, text: this.state.allNames[i], value: i});
+                this.options.push({ key: i, text: this.state.allNames[i], value: i });
             }
         }
     }
@@ -54,24 +55,19 @@ class SearchDropdown extends React.Component {
         return (
             <div className="search-dropdown">
                 <div className="ui search">
-                    <span style={{ fontSize: "25px", margin: "15px 0" }}>
-                        Building
-                    </span>
-                    <span>
-                        <Menu compact>
-                            <Dropdown
-                                text={this.state.term === "" ? "Building" : this.state.term}
-                                options={this.options}
-                                value={this.state.term}
-                                onClick = {this.onDropDownClick}
-                                onChange={(e) => {
-                                    this.setState({ term: this.getTextContent(e) });
-                                    this.onDropdownSubmit(e);
-                                    }
-                                }
-                                simple item />
-                        </Menu>
-                    </span>
+                    <Menu compact>
+                        <Dropdown
+                            text={this.state.term === "" ? "Building" : this.state.term}
+                            options={this.options}
+                            value={this.state.term}
+                            onClick={this.onDropDownClick}
+                            onChange={(e) => {
+                                this.setState({ term: this.getTextContent(e) });
+                                this.onDropdownSubmit(e);
+                            }
+                            }
+                            simple item />
+                    </Menu>
                 </div>
             </div >
         );

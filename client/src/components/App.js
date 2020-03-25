@@ -1,5 +1,6 @@
 import SearchDropdown from "./SearchDropdown";
 import SearchMap from "./SearchMap";
+import "../stylesheets/app.css"
 import React from "react";
 import axios from "axios";
 
@@ -41,8 +42,7 @@ class App extends React.Component {
     render = () => {
         return (
             <div className="app">
-                <h1>Access UBC</h1>
-                <div>Search Icon</div>
+                <p className="header"><span className="access">ACCESS</span> UBC</p>
                 <SearchDropdown
                     onSubmit={this.onDropdownSubmit}
                     onClick={this.onDropDownClick}
