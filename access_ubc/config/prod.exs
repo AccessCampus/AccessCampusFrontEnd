@@ -15,12 +15,18 @@ config :access_ubc, AccessUbcWeb.Endpoint,
   server: true,
   secret_key: "${SECRET_KEY_BASE}"
 
-config :access_ubc, AccessUbcWeb.Repo,
+config :access_ubc, AccessUbcWeb.Endpoint,
+  # Possibly not needed, but doesn't hurt
+  http: [port: {:system, "PORT"}],
+  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 80],
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE"),
+  server: true
+
+config :access_ubc, AccessUbc.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: "${DATABASE_URL}",
-  database: "",
+  url: System.get_env("DATABASE_URL"),
   ssl: true,
-  pool_size: 1
+  pool_size: 2
 
 # Do not print debug messages in production
 config :logger, level: :info
