@@ -16,11 +16,16 @@ class SearchDropdown extends React.Component {
         }
         return null;
     }
+
+    componentDidMount = () => {
+        this.returnAllNames();
+        this.props.onClick();
+    }
     
     options = [];
 
     returnAllNames = () => {
-        if (this.state !== undefined && this.state.allNames.length !== 0 && this.options.length == 0) {
+        if (this.state !== undefined && this.state.allNames.length !== 0 && this.options.length === 0) {
             for (let i = 0; i < this.state.allNames.length; i++) {
                 this.options.push({key: i, text: this.state.allNames[i], value: i});
             }
