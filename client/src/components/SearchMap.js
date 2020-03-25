@@ -60,12 +60,11 @@ class SearchMap extends React.Component {
                 return <Marker key={index} id={index} position={{
                     lat: entrance.lat,
                     lng: entrance.long
-                }}
-                    onClick={() => console.log("You clicked me!")} />
+                }}/>
             })
         }
     }
-
+    
     render = () => {
         return (
             <div className="search-map">
