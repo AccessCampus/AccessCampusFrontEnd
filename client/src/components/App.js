@@ -4,22 +4,20 @@ import React from "react";
 import axios from "axios";
 
 class App extends React.Component {
-    state = {building: "", entrances: [], allBuildings: []};
+    state = {building: "", entrances: []};
 
     onDropdownSubmit = async term => {
         let search = term;
         const res = await axios.get("http://localhost:4000/api/buildings", {
             params: { query: term }
         });
-        let tempBuildings = [];
         let tempBuildingName = "";
         let tempEntrances = [];
         let changed = false;
         res.data.data.forEach((data) => {
-            tempBuildings.push(data["name"]);
             if (data["name"] === search) {
                 changed = true;
-                tempBuildings = data["name"];
+                tempBuildingName = data["name"];
                 tempEntrances = data["entrances"];
             }
         });
@@ -28,8 +26,6 @@ class App extends React.Component {
         } else {
             this.setState({building: tempBuildingName}); 
             this.setState({entrances: tempEntrances});
-            this.setState({allBuildings: tempBuildings});
-            console.log(this.state.allBuildings);
         }
     };
 
