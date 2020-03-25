@@ -17,7 +17,9 @@ class SearchMap extends React.Component {
     }
 
     mapStyles = {
-        width: '50%',
+        marginLeft: "auto",
+        marginRight: "auto",
+        width: '85%',
         height: '50%',
     };
 
