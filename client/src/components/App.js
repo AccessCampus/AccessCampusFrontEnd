@@ -84,6 +84,35 @@ class App extends React.Component {
         }
     }
 
+    searchDropDown = () => {
+        if (this.state.campus === "Harvard") {
+            return (
+                <div className="harvard-text">
+                    Coming Soon!
+                </div>
+            )
+        } else if (this.state.campus === "SFU") {
+            return (
+                <div className="sfu-text">
+                    Coming Soon!
+                </div>
+            )
+        } else if (this.state.campus === "Google") {
+            return (
+                <div className="google-text">
+                    Coming Soon!
+                </div>
+            )
+        } else {
+            return (
+                <SearchDropdown
+                    onSubmit={this.onDropdownSubmit}
+                    onClick={this.onDropDownClick}
+                    allNames={this.state.allNames} />
+            );
+        }
+    }
+
     render = () => {
         return (
             <div className="app">
@@ -92,10 +121,7 @@ class App extends React.Component {
                 <div className="header">
                     <img className={this.returnClassName()} alt={this.returnClassName()} src={this.returnLogo()}></img>
                 </div>
-                <SearchDropdown
-                    onSubmit={this.onDropdownSubmit}
-                    onClick={this.onDropDownClick}
-                    allNames={this.state.allNames} />
+                {this.searchDropDown()}
                 <SearchMap
                     entrances={this.state.entrances}
                     name={this.state.building} />

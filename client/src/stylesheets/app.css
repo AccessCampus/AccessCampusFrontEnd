@@ -9,6 +9,7 @@
     height: 100px;
 }
 
+
 .sfu {
     width: 200px;
     height: 100px;
@@ -19,6 +20,27 @@
     width: 100px;
     height: 100px;
     color: #DB4437;
+}
+
+.harvard-text {
+    margin-top: 42px;
+    margin-bottom: 41px;
+    font-size: 48px;                       
+    color: #000000; 
+}
+
+.sfu-text {
+    margin-top: 42px;
+    margin-bottom: 41px;
+    font-size: 48px;     
+    color: #FFFFFF;                    
+}
+
+.google-text {
+    margin-top: 42px;
+    margin-bottom: 41px;
+    font-size: 48px;        
+    color: #DB4437;                    
 }
 
 body {
