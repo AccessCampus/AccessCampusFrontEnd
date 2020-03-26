@@ -1,6 +1,7 @@
 import SearchDropdown from "./SearchDropdown";
 import SearchMap from "./SearchMap";
-import "../stylesheets/app.css"
+import UBCLogo from "../images/ubc.png";
+import "../stylesheets/app.css";
 import React from "react";
 import axios from "axios";
 
@@ -41,17 +42,20 @@ class App extends React.Component {
 
     render = () => {
         return (
-            <div className="body">
-                <div className="app">
-                    <p className="header"><span className="access">ACCESS</span> UBC</p>
-                    <SearchDropdown
-                        onSubmit={this.onDropdownSubmit}
-                        onClick={this.onDropDownClick}
-                        allNames={this.state.allNames} />
-                    <SearchMap
-                        entrances={this.state.entrances}
-                        name={this.state.building} />
+            <div className="app">
+                <div className="header">
+                    <span className="access">ACCESS</span>
+                    <span>
+                        <img alt="UBC" src={UBCLogo}></img>
+                    </span>
                 </div>
+                <SearchDropdown
+                    onSubmit={this.onDropdownSubmit}
+                    onClick={this.onDropDownClick}
+                    allNames={this.state.allNames} />
+                <SearchMap
+                    entrances={this.state.entrances}
+                    name={this.state.building} />
             </div>
         );
     };

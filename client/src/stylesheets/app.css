@@ -1,8 +1,15 @@
+img {
+    /* Original width of UBCLogo: width: 196px, height: 261px */
+    width: 49px;
+    height: 65px;
+    margin-left: 25px;
+}
+
 body {
     text-align: center;
     align-items: center;
     font-family: 'Bebas Neue', cursive;
-    background-color: #fff3b1;
+    background-color: #0C2344;
 }
 
 p:first-child {
@@ -17,15 +24,15 @@ p {
     margin-block-end: 0px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    color: #fdcb6e;
 }
 
 .access {
-    color: #6c5ce7;
-    font-style: italic;
+    color: #FED700;
 }
 
 .header {
+    margin-top: 50px;
+    margin-bottom: 30px;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
