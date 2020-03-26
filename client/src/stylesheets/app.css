@@ -1,15 +1,30 @@
-img {
-    /* Original width of UBCLogo: width: 196px, height: 261px */
-    width: 49px;
-    height: 65px;
-    margin-left: 25px;
+.ubc {
+    width: 75px;
+    height: 100px;
+    color: #FED700;
+}
+
+.harvard {
+    width: 115px;
+    height: 100px;
+}
+
+.sfu {
+    width: 200px;
+    height: 100px;
+    color: #FFFFFF;
+}
+
+.google {
+    width: 100px;
+    height: 100px;
+    color: #DB4437;
 }
 
 body {
     text-align: center;
     align-items: center;
     font-family: 'Bebas Neue', cursive;
-    background-color: #0C2344;
 }
 
 p:first-child {
@@ -26,13 +41,9 @@ p {
     margin-inline-end: 0px;
 }
 
-.access {
-    color: #FED700;
-}
-
 .header {
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
     width: fit-content;

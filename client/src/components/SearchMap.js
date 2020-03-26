@@ -82,7 +82,9 @@ class SearchMap extends React.Component {
                     initialCenter={this.displayCenter()}
                     center={this.displayCenter()}
                     fullscreenControl={false}
-                    mapTypeControl={false}>
+                    mapTypeControl={false}
+                    zoomControl={false}
+                    streetViewControl={false}>
                     {this.displayMarkers()}
                 </Map>
             </div>

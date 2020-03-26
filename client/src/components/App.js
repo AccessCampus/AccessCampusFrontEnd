@@ -1,13 +1,28 @@
 import SearchDropdown from "./SearchDropdown";
 import SearchMap from "./SearchMap";
-import CampusMenu from "./CampusMenu"
+import CampusMenu from "./CampusMenu";
 import UBCLogo from "../images/ubc.png";
+import HarvardLogo from "../images/harvard.png";
+import SFULogo from "../images/sfu.png";
+import GoogleLogo from "../images/google.png";
 import "../stylesheets/app.css";
 import React from "react";
 import axios from "axios";
 
 class App extends React.Component {
-    state = { building: "", entrances: [], allNames: [] };
+    state = { campus: "", building: "", entrances: [], allNames: [] };
+
+    componentDidUpdate = () => {
+        if (this.state.campus === "Harvard") {
+            document.body.style.backgroundColor = "#A41034";
+        } else if (this.state.campus === "SFU") {
+            document.body.style.backgroundColor = "#CD3D3D";
+        } else if (this.state.campus === "Google") {
+            document.body.style.backgroundColor = "#E6E6E6";
+        } else {
+            document.body.style.backgroundColor = "#0C2344";
+        }
+    }
 
     onDropdownSubmit = async term => {
         let search = term;
@@ -42,19 +57,40 @@ class App extends React.Component {
     }
 
     onMenuClick = term => {
-        console.log(term);
+        this.setState({ campus: term });
+    }
+
+    returnLogo = () => {
+        if (this.state.campus === "Harvard") {
+            return HarvardLogo;
+        } else if (this.state.campus === "SFU") {
+            return SFULogo;
+        } else if (this.state.campus === "Google") {
+            return GoogleLogo;
+        } else {
+            return UBCLogo;
+        }
+    }
+
+    returnClassName = () => {
+        if (this.state.campus === "Harvard") {
+            return "harvard";
+        } else if (this.state.campus === "SFU") {
+            return "sfu";
+        } else if (this.state.campus === "Google") {
+            return "google";
+        } else {
+            return "ubc";
+        }
     }
 
     render = () => {
         return (
             <div className="app">
-                <CampusMenu 
-                    onClick={this.onMenuClick}/>
+                <CampusMenu
+                    onClick={this.onMenuClick} />
                 <div className="header">
-                    <span className="access">ACCESS</span>
-                    <span>
-                        <img alt="UBC" src={UBCLogo}></img>
-                    </span>
+                    <img className={this.returnClassName()} alt={this.returnClassName()} src={this.returnLogo()}></img>
                 </div>
                 <SearchDropdown
                     onSubmit={this.onDropdownSubmit}
