@@ -36,20 +36,22 @@ class App extends React.Component {
         res.data.data.forEach((data) => {
             tempAllNames.push(data["name"]);
         });
-        this.setState({ allNames: tempAllNames});
+        this.setState({ allNames: tempAllNames });
     }
 
     render = () => {
         return (
-            <div className="app">
-                <p className="header"><span className="access">ACCESS</span> UBC</p>
-                <SearchDropdown
-                    onSubmit={this.onDropdownSubmit}
-                    onClick={this.onDropDownClick}
-                    allNames={this.state.allNames} />
-                <SearchMap
-                    entrances={this.state.entrances}
-                    name={this.state.building}/>
+            <div className="body">
+                <div className="app">
+                    <p className="header"><span className="access">ACCESS</span> UBC</p>
+                    <SearchDropdown
+                        onSubmit={this.onDropdownSubmit}
+                        onClick={this.onDropDownClick}
+                        allNames={this.state.allNames} />
+                    <SearchMap
+                        entrances={this.state.entrances}
+                        name={this.state.building} />
+                </div>
             </div>
         );
     };
