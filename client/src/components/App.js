@@ -1,5 +1,6 @@
 import SearchDropdown from "./SearchDropdown";
 import SearchMap from "./SearchMap";
+import CampusMenu from "./CampusMenu"
 import UBCLogo from "../images/ubc.png";
 import "../stylesheets/app.css";
 import React from "react";
@@ -40,9 +41,15 @@ class App extends React.Component {
         this.setState({ allNames: tempAllNames });
     }
 
+    onMenuClick = term => {
+        console.log(term);
+    }
+
     render = () => {
         return (
             <div className="app">
+                <CampusMenu 
+                    onClick={this.onMenuClick}/>
                 <div className="header">
                     <span className="access">ACCESS</span>
                     <span>

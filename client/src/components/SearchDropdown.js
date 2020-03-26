@@ -64,8 +64,7 @@ class SearchDropdown extends React.Component {
                             onChange={(e) => {
                                 this.setState({ term: this.getTextContent(e) });
                                 this.onDropdownSubmit(e);
-                            }
-                            }
+                            }}
                             simple item />
                     </Menu>
                 </div>
