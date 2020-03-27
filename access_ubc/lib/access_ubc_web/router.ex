@@ -2,8 +2,7 @@ defmodule AccessUbcWeb.Router do
   use AccessUbcWeb, :router
 
   pipeline :browser do
-    plug CORSPlug, origin: "*"
-    plug :accepts, ["html", "json"]
+    plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
@@ -11,24 +10,17 @@ defmodule AccessUbcWeb.Router do
   end
 
   pipeline :api do
-    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
-    plug :fetch_session
-    plug :fetch_flash
   end
 
   scope "/", AccessUbcWeb do
     pipe_through :browser
 
-    get "/", BuildingController, :index
+    get "/", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", AccessUbcWeb do
-    pipe_through :api
-
-    get "/buildings", BuildingController, :index
-    get "/buildings:id", BuildingController, :show
-    post "/buildings", BuildingController, :create
-  end
+  # scope "/api", AccessUbcWeb do
+  #   pipe_through :api
+  # end
 end

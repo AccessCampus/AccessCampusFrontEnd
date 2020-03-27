@@ -11,16 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :access_ubc, AccessUbcWeb.Endpoint,
   url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json",
-  secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  server: true,
-  secret_key: "${SECRET_KEY_BASE}"
-
-config :elixir_test_app, AccessUbc.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
+  cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -30,17 +21,16 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-config :access_ubc, AccessUbcWeb.Endpoint,
-  url: [scheme: "https", host: "access-campus.herokuapp.com", port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  https: [
-    port: 443,
-    cipher_suite: :strong,
-    keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-    certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
-    transport_options: [socket_opts: [:inet6]]
-  ]
-
+#     config :access_ubc, AccessUbcWeb.Endpoint,
+#       ...
+#       url: [host: "example.com", port: 443],
+#       https: [
+#         port: 443,
+#         cipher_suite: :strong,
+#         keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
+#         certfile: System.get_env("SOME_APP_SSL_CERT_PATH"),
+#         transport_options: [socket_opts: [:inet6]]
+#       ]
 #
 # The `cipher_suite` is set to `:strong` to support only the
 # latest and more secure SSL ciphers. This means old browsers
@@ -62,4 +52,4 @@ config :access_ubc, AccessUbcWeb.Endpoint,
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-# import_config "prod.secret.exs"
+import_config "prod.secret.exs"

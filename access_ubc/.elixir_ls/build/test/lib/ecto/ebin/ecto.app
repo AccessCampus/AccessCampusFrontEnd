@@ -1,5 +1,5 @@
 {application,ecto,
-             [{applications,[kernel,stdlib,elixir,logger,crypto,decimal]},
+             [{applications,[kernel,stdlib,elixir,logger,crypto,eex,decimal]},
               {description,"A toolkit for data mapping and language integrated query for Elixir"},
               {modules,['Elixir.Ecto','Elixir.Ecto.Adapter',
                         'Elixir.Ecto.Adapter.Queryable',
@@ -80,5 +80,5 @@
                         'Elixir.Mix.Tasks.Ecto.Drop',
                         'Elixir.Mix.Tasks.Ecto.Gen.Repo']},
               {registered,[]},
-              {vsn,"3.3.4"},
+              {vsn,"3.4.0"},
               {mod,{'Elixir.Ecto.Application',[]}}]}.
