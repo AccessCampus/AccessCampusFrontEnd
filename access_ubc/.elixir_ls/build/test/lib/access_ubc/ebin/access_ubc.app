@@ -22,6 +22,7 @@
                         'Elixir.AccessUbcWeb.LayoutView',
                         'Elixir.AccessUbcWeb.PageController',
                         'Elixir.AccessUbcWeb.PageView',
+                        'Elixir.AccessUbcWeb.Presence',
                         'Elixir.AccessUbcWeb.Router',
                         'Elixir.AccessUbcWeb.Router.Helpers',
                         'Elixir.AccessUbcWeb.UserSocket']},
