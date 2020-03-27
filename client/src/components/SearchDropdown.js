@@ -57,7 +57,7 @@ class SearchDropdown extends React.Component {
                 <div className="ui search">
                     <Menu compact>
                         <Dropdown
-                            text={this.state.term === "" ? "Building" : this.state.term}
+                            text={this.state.term === "" ? "Choose Building for Access" : this.state.term}
                             options={this.options}
                             value={this.state.term}
                             onClick={this.onDropDownClick}
