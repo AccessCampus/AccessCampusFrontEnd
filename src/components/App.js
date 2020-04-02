@@ -26,7 +26,7 @@ class App extends React.Component {
 
     onDropdownSubmit = async term => {
         let search = term;
-        const res = await axios.get("https://rhubarb-pie-26523.herokuapp.com/api/buildings", {
+        const res = await axios.get("https://access-campus-api.herokuapp.com/api/buildings", {
             params: { query: term }
         });
         let tempBuildingName = "";
