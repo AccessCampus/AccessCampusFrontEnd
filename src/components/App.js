@@ -48,7 +48,7 @@ class App extends React.Component {
     }
 
     onDropDownClick = async () => {
-        const res = await axios.get("https://rhubarb-pie-26523.herokuapp.com/api/buildings");
+        const res = await axios.get("https://access-campus-api.herokuapp.com/api/buildings");
         let tempAllNames = [];
         res.data.data.forEach((data) => {
             tempAllNames.push(data["name"]);
@@ -122,7 +122,7 @@ class App extends React.Component {
                     <img className={this.returnClassName()} alt={this.returnClassName()} src={this.returnLogo()}></img>
                 </div>
                 <div className="api">
-                    <a href="https://rhubarb-pie-26523.herokuapp.com/api/buildings">Click here for the API!</a>
+                    <a href="https://access-campus-api.herokuapp.com/api/buildings">Click here for the API!</a>
                 </div>
                 {this.searchDropDown()}
                 <SearchMap
