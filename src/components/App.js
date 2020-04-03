@@ -68,6 +68,7 @@ class App extends React.Component {
         } else if (this.state.campus === "Google") {
             return GoogleLogo;
         } else {
+            document.body.style.backgroundColor = "#0C2344";
             return UBCLogo;
         }
     }
