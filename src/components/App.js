@@ -122,7 +122,7 @@ class App extends React.Component {
                     <img className={this.returnClassName()} alt={this.returnClassName()} src={this.returnLogo()}></img>
                 </div>
                 <div className="api">
-                    <a href="https://access-campus-api.herokuapp.com/api/buildings">Click here for the API!</a>
+                    <a target="_blank" href="https://access-campus-api.herokuapp.com/api/buildings">Click here for the API!</a>
                 </div>
                 {this.searchDropDown()}
                 <SearchMap
