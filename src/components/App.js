@@ -48,7 +48,7 @@ class App extends React.Component {
     }
 
     onDropDownClick = async () => {
-        const res = await axios.get("https://access-campus-api.herokuapp.com/api/buildings");
+        let res = await axios.get("https://access-campus-api.herokuapp.com/api/buildings");
         let tempAllNames = [];
         res.data.data.forEach((data) => {
             tempAllNames.push(data["name"]);
