@@ -1,5 +1,5 @@
 import React from 'react';
-import { capitalizeCampusName } from '../../utils/capitalizeCampusName'
+import capitalizeCampusName from '../../utils/capitalizeCampusName'
 
 const BuildingSelector = ({ campus }) => {
     const campusText = capitalizeCampusName(campus);
