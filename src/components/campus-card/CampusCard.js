@@ -4,12 +4,12 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
-import useCampusCardStyles from './useCampusCardStyles';
+import CampusCardStyles from './CampusCard.styles';
 import capitalizeCampusName from '../../utils/capitalizeCampusName';
 
 const CampusCard = ({ campus, color, image }) => {
     const styleProps = { backgroundColor: color }
-    const cards = useCampusCardStyles(styleProps);
+    const cards = CampusCardStyles(styleProps);
 
     const campusText = capitalizeCampusName(campus);
 

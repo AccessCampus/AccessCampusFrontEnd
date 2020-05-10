@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-const useCampusCardStyles = makeStyles({
+const CampusCardStyles = makeStyles({
     root: {
         boxShadow: "0px 14px 80px rgba(34, 35, 58, 0.2)",
         width: 345,
@@ -35,4 +35,4 @@ const useCampusCardStyles = makeStyles({
     })
 });
 
-export default useCampusCardStyles;
+export default CampusCardStyles;

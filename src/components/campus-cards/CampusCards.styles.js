@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
-const useCampusCardsStyles = makeStyles({
+const CampusCardsStyles = makeStyles({
     grid: {
         alignItems: "center",
         margin: "auto",
@@ -8,4 +8,4 @@ const useCampusCardsStyles = makeStyles({
     },
 });
 
-export default useCampusCardsStyles;
+export default CampusCardsStyles;

@@ -1,10 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import CampusCard from '../campus-card/CampusCard';
-import useCampusCardsStyles from './useCampusCardsStyles';
+import CampusCardsStyles from './CampusCards.styles';
 
 const CampusCards = ({ campusList }) => {
-    const cards = useCampusCardsStyles();
+    const cards = CampusCardsStyles();
 
     return (
         <div className="campusCards">
