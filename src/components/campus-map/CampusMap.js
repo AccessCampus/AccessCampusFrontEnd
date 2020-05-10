@@ -3,7 +3,7 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import dotenv from 'dotenv';
 import axios from 'axios'
 
-const CampusMap = ({ campus, color }) => {
+const CampusMap = ({ campus, color, index }) => {
     dotenv.config();
 
     useEffect(() => {
@@ -13,7 +13,7 @@ const CampusMap = ({ campus, color }) => {
             }).catch(() => {
                 console.error;
             });
-    }, [])
+    }, []);
 
     const mapStyles = {
         height: "50vh",

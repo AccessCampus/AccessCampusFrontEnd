@@ -25,7 +25,7 @@ const campusList = [
         image: googleImg
     },
     // {
-    //     campus: "UCLA",
+    //     campus: "ucla",
     //     color: "FFFFFF",
     //     image: "",
     // }
