@@ -8,7 +8,7 @@ import CampusCardStyles from './CampusCard.styles';
 import capitalizeCampusName from '../../utils/capitalizeCampusName';
 
 const CampusCard = ({ campus, color, image }) => {
-    const styleProps = { backgroundColor: color }
+    const styleProps = { backgroundColor: color };
     const cards = CampusCardStyles(styleProps);
 
     const campusText = capitalizeCampusName(campus);
