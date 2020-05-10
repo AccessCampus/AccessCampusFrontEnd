@@ -7,7 +7,6 @@ const CampusMap = ({ campus, color }) => {
     dotenv.config();
 
     useEffect(() => {
-        console.log("useEffect")
         axios.get("https://access-campus-api.herokuapp.com/api/buildings")
             .then((res) => {
                 console.log(res.data.data[0].name);
