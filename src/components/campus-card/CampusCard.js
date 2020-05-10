@@ -17,7 +17,7 @@ const CampusCard = ({ campus, color, image }) => {
             <Card className={cards.root}>
                 <CardMedia image={image} className={cards.media} />
                 <CardContent className={cards.content} align="center">
-                    <Link to={`/${campus}`}>
+                    <Link to={`/${campus}`} style={{ textDecoration: 'none' }}>
                         <Button
                             variant="outlined"
                             className={cards.button}
