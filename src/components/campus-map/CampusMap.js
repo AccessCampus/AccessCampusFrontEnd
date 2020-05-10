@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import dotenv from 'dotenv';
-dotenv.config();
+import axios from 'axios'
 
 const CampusMap = ({ campus, color }) => {
+    dotenv.config();
 
+    useEffect(() => {
+        console.log("useEffect")
+        axios.get("https://access-campus-api.herokuapp.com/api/buildings")
+            .then((res) => {
+                console.log(res.data.data[0].name);
+            }).catch(() => {
+                console.error;
+            });
+    }, [])
 
     const mapStyles = {
-        height: "100vh",
+        height: "50vh",
         width: "85%",
     }
 
