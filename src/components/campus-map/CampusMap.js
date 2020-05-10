@@ -9,7 +9,7 @@ const CampusMap = ({ campus, color }) => {
     useEffect(() => {
         axios.get("https://access-campus-api.herokuapp.com/api/buildings")
             .then((res) => {
-                console.log(res.data.data[0].name);
+                console.log(res.data.data);
             }).catch(() => {
                 console.error;
             });
