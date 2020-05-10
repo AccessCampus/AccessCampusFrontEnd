@@ -15,7 +15,6 @@ const CampusCards = ({ campusList }) => {
                             campus={campus}
                             color={color}
                             image={image}
-                            path={`/${campus}`}
                         />
                     </Grid>
                 )}
