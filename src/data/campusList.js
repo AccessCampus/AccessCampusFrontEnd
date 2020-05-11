@@ -25,9 +25,9 @@ const campusList = [
         image: googleImg
     },
     // {
-    //     campus: "ucla",
-    //     color: "FFFFFF",
-    //     image: "",
+    //     campus: "shopify",
+    //     color: "#999999",
+    //     image: "//cdn.torontolife.com/wp-content/uploads/2019/09/GAC_Shopify-0046.jpg"
     // }
 ];
 

@@ -3,7 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import CampusMap from '../campus-map/CampusMap';
 import BuildingSelector from '../building-selector/BuildingSelector';
 
-const CampusPage = ({ campus, color, index }) => {
+const CampusPage = ({ campus, color, index, buildings }) => {
+    console.log(buildings);
     return (
         <div className="campus-page">
             <Grid container>
