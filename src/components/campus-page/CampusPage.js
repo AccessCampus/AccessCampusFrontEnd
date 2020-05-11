@@ -30,6 +30,7 @@ const CampusPage = ({ campus, color, index }) => {
                 <Grid item xs={12} md={6} item>
                     <BuildingSelector
                         campus={campus}
+                        buildings={buildings}
                     />
                 </Grid>
             </Grid>
