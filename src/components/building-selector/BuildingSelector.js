@@ -4,7 +4,7 @@ import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import capitalizeCampusName from '../../utils/capitalizeCampusName';
 
-const BuildingSelector = ({ campus }) => {
+const BuildingSelector = ({ campus, handleBuildingChoice }) => {
     const campusText = capitalizeCampusName(campus);
     const [buildings, setBuildings] = useState([]);
 
@@ -26,6 +26,7 @@ const BuildingSelector = ({ campus }) => {
             <Select
                 variant="outlined"
                 native
+                onChange={handleBuildingChoice}
             >
                 {buildings.length === 0 ?
                     <option
