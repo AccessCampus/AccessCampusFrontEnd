@@ -7,16 +7,6 @@ import campusList from '../data/campusList';
 import axios from 'axios';
 
 const App = () => {
-    // const [buildings, setBuildings] = useState([]);
-
-    // useEffect(() => {
-    //     async function getBuildings() {
-    //         const res = await axios.get("https://access-campus-api.herokuapp.com/api/buildings");
-    //         setBuildings(res.data.data);
-    //     }
-    //     getBuildings();
-    // }, []);
-
     return (
         <div className="app">
             <Router>
@@ -30,7 +20,6 @@ const App = () => {
                         path={`/${campus}`}
                         campus={campus}
                         color={color}
-                    // buildings={buildings}
                     />
                 )}
             </Router>
