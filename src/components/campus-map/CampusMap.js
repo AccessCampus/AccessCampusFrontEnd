@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import dotenv from 'dotenv';
 
-const CampusMap = ({ campus, color, index, buildingName }) => {
+const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
+    const [entranceLocations, setEntranceLocations] = useState([]);
+
+    function getEntranceLocations() {
+        console.log(buildings);
+    }
+
+    useEffect(() => {
+        setEntranceLocations([]);
+        getEntranceLocations();
+    }, [buildings]);
+
     dotenv.config();
 
     const mapStyles = {

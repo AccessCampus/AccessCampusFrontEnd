@@ -29,6 +29,7 @@ const CampusPage = ({ campus, color, index }) => {
                         index={index}
                         campus={campus}
                         color={color}
+                        buildings={buildings}
                         buildingName={buildingName}
                     />
                 </Grid>
