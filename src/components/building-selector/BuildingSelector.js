@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 import capitalizeCampusName from '../../utils/capitalizeCampusName';
 
 const BuildingSelector = ({ campus }) => {
@@ -17,6 +18,12 @@ const BuildingSelector = ({ campus }) => {
 
     return (
         <div className="campus-selector">
+            <InputLabel
+                shrink
+                htmlFor="select-multiple-native"
+            >
+                {`${campusText} Buildings`}
+            </InputLabel>
             <Select
                 multiple
                 native
