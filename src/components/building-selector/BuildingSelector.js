@@ -19,32 +19,39 @@ const BuildingSelector = ({ campus }) => {
     return (
         <div className="campus-selector">
             <InputLabel
-                shrink
                 htmlFor="select-multiple-native"
             >
                 {`${campusText} Buildings`}
             </InputLabel>
             <Select
-                multiple
+                variant="outlined"
                 native
-                value={buildings}
             >
                 {buildings.length === 0 ?
                     <option
-                        key={"none"}
                         value={"none"}
+                        key={"none"}
                     >
-                        No info available
+                        No buildings available to search
                     </option>
                     :
-                    buildings.map(building => (
-                        <option
-                            key={building.id}
-                            value={building.name}
-                        >
-                            {building.name}
-                        </option>
-                    ))}
+                    [<option
+                        value={"disabled"}
+                        disabled
+                        key={"-1"}
+                    >
+                        Choose a building to find entrances for below:
+                    </option>]
+                        .concat(
+                            buildings.map(building => (
+                                <option
+                                    key={building.id}
+                                    value={building.name}
+                                >
+                                    {building.name}
+                                </option>
+                            ))
+                        )}
             </Select>
         </div>
     );
