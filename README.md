@@ -1,4 +1,4 @@
-# AccessCampusFrontEnd
+# Access Campus
 Front end for AccessCampus
 
 Built using:
