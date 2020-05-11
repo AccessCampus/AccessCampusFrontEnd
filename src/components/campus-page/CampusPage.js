@@ -14,14 +14,16 @@ const CampusPage = ({ campus, color, index }) => {
             setBuildings(res.data.data);
         }
         getBuildings();
-    }, []);
+    }, [buildingName]);
 
-    const handleBuildingChoice = (e => {
+    const handleBuildingChoice = e => {
+        console.log("I got to here");
         setBuildingName(e.target.value)
-    });
+    };
 
     return (
         <div className="campus-page">
+            <h1>{buildingName}</h1>
             <Grid container>
                 <Grid item xs={12} md={6} item>
                     <CampusMap
@@ -38,7 +40,7 @@ const CampusPage = ({ campus, color, index }) => {
                         campus={campus}
                         buildings={buildings}
                         buildingName={buildingName}
-                        hanleBuildingChoice={handleBuildingChoice}
+                        handleBuildingChoice={handleBuildingChoice}
                     />
                 </Grid>
             </Grid>

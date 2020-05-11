@@ -6,13 +6,14 @@ const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
     const [entranceLocations, setEntranceLocations] = useState([]);
 
     function getEntranceLocations() {
+        console.log(buildingName);
         console.log(buildings);
     }
 
     useEffect(() => {
         setEntranceLocations([]);
         getEntranceLocations();
-    }, [buildings]);
+    }, [buildings, buildingName]);
 
     dotenv.config();
 
