@@ -17,13 +17,11 @@ const CampusPage = ({ campus, color, index }) => {
     }, [buildingName]);
 
     const handleBuildingChoice = e => {
-        console.log("I got to here");
         setBuildingName(e.target.value)
     };
 
     return (
         <div className="campus-page">
-            <h1>{buildingName}</h1>
             <Grid container>
                 <Grid item xs={12} md={6} item>
                     <CampusMap

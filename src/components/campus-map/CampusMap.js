@@ -4,18 +4,20 @@ import dotenv from 'dotenv';
 
 const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
     const [entranceLocations, setEntranceLocations] = useState([]);
+    dotenv.config();
 
     function getEntranceLocations() {
-        console.log(buildingName);
-        console.log(buildings);
+        let entrances = [];
+        buildings.forEach(building => {
+            if (building.name === buildingName) entrances = building.entrances;
+        });
+        return entrances;
     }
 
     useEffect(() => {
         setEntranceLocations([]);
-        getEntranceLocations();
+        setEntranceLocations(getEntranceLocations());
     }, [buildings, buildingName]);
-
-    dotenv.config();
 
     const mapStyles = {
         height: "50vh",
