@@ -7,11 +7,12 @@ const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
     dotenv.config();
 
     function getEntranceLocations() {
-        let entrances = [];
-        buildings.forEach(building => {
-            if (building.name === buildingName) entrances = building.entrances;
-        });
-        return entrances;
+        for (let building of buildings) {
+            if (building.name === buildingName) {
+                return building.entrances;
+            }
+        }
+        return [];
     }
 
     useEffect(() => {
