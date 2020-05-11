@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import capitalizeCampusName from '../../utils/capitalizeCampusName';
 
-const BuildingSelector = ({ campus, handleBuildingChoice }) => {
+const BuildingSelector = ({ campus, buildings, handleBuildingChoice }) => {
     const campusText = capitalizeCampusName(campus);
-    const [buildings, setBuildings] = useState([]);
-
-    useEffect(() => {
-        async function getBuildings() {
-            const res = await axios.get("https://access-campus-api.herokuapp.com/api/buildings");
-            setBuildings(res.data.data);
-        }
-        getBuildings();
-    }, []);
 
     return (
         <div className="campus-selector">
