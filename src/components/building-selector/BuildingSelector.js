@@ -22,22 +22,22 @@ const BuildingSelector = ({ campus }) => {
                 native
                 value={buildings}
             >
-                <option
-                    key={
-                        buildings.length === 0 ?
-                            "none" : buildings[0].id
-                    }
-                    value={
-                        buildings.length === 0 ?
-                            "none" : buildings[0].id
-                    }
-                >
-                    {
-                        buildings.length === 0 ?
-                            "none" : buildings[0].id
-                    }
-                </option>
-                ))}
+                {buildings.length === 0 ?
+                    <option
+                        key={"none"}
+                        value={"none"}
+                    >
+                        No info available
+                    </option>
+                    :
+                    buildings.map(building => (
+                        <option
+                            key={building.id}
+                            value={building.name}
+                        >
+                            {building.name}
+                        </option>
+                    ))}
             </Select>
         </div>
     );
