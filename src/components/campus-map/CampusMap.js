@@ -37,17 +37,20 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
     useEffect(() => {
         setEntrances([]);
         setEntrances(getEntrances());
-        console.log(entrances);
     }, [buildings, buildingName]);
 
     const mapStyles = {
-        height: "50vh",
+        height: "75vh",
         width: "85%",
     }
 
-    const defaultCenter = entrances.length === 0 ?
+    const mapCenter = entrances.length === 0 ?
         coords :
         calculateCenter();
+
+    const mapZoom = entrances.length === 0 ?
+        13 :
+        18;
 
     return (
         <div className="campus-map">
@@ -55,8 +58,8 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
                 googleMapsApiKey={process.env.API_KEY}>
                 <GoogleMap
                     mapContainerStyle={mapStyles}
-                    zoom={13}
-                    center={defaultCenter}
+                    center={mapCenter}
+                    zoom={mapZoom}
                 >
                     {entrances.map((entrance, index) => (
                         <Marker
