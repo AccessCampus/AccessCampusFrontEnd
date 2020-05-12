@@ -2,7 +2,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import CampusCard from '../campus-card/CampusCard';
 import CampusCardsStyles from './CampusCards.styles';
-
 const CampusCards = ({ campusList }) => {
     const cards = CampusCardsStyles();
 
