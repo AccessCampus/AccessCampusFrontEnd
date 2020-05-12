@@ -27,8 +27,8 @@ const campusList = [
         color: "#A41034",
         image: harvardImg,
         coords: {
-            lat: 42.3770068,
-            lng: -71.1188488,
+            lat: 42.379266,
+            lng: -71.118645,
         }
     },
     {
