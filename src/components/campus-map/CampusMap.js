@@ -22,6 +22,18 @@ const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
         return result;
     }
 
+    function calculateCenter() {
+        let lat = 0;
+        let lng = 0;
+        entrances.forEach(coord => {
+            lat += coord.lat;
+            lng += coord.lng;
+        });
+        lat = lat / entrances.length;
+        lng = lng / entrances.length;
+        return { lat: lat, lng: lng }
+    }
+
     useEffect(() => {
         setEntrances([]);
         setEntrances(getEntrances());
@@ -33,9 +45,9 @@ const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
         width: "85%",
     }
 
-    const defaultCenter = {
-        lat: 49.2621294, lng: -123.249704
-    }
+    const defaultCenter = entrances.length === 0 ?
+        { lat: 49.2621294, lng: -123.249704 } :
+        calculateCenter();
 
     return (
         <div className="campus-map">
