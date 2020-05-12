@@ -56,6 +56,13 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
         window.open(`http://maps.google.com/maps?q=loc:${lat},${lng}`, "_blank")
     }
 
+    const mapOptions = {
+        mapTypeControl: false,
+        fullscreenControl: false,
+        zoomControl: false,
+        streetViewControl: false
+    }
+
     return (
         <div className="campus-map">
             <LoadScript
@@ -64,6 +71,7 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
                     mapContainerStyle={mapStyles}
                     center={mapCenter}
                     zoom={mapZoom}
+                    options={mapOptions}
                 >
                     {entrances.map((entrance, index) => (
                         <Marker
