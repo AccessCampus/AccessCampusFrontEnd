@@ -12,13 +12,14 @@ const App = () => {
                 <CampusCards path="/"
                     campusList={campusList}
                 />
-                {campusList.map(({ campus, color }, index) =>
+                {campusList.map(({ campus, color, coords }, index) =>
                     <CampusPage
                         key={index}
                         index={index}
                         path={`/${campus}`}
                         campus={campus}
                         color={color}
+                        coords={coords}
                     />
                 )}
             </Router>

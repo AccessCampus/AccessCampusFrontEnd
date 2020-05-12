@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import dotenv from 'dotenv';
 
-const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
+const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) => {
     dotenv.config();
     const [entrances, setEntrances] = useState([]);
 
@@ -46,7 +46,7 @@ const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
     }
 
     const defaultCenter = entrances.length === 0 ?
-        { lat: 49.2621294, lng: -123.249704 } :
+        coords :
         calculateCenter();
 
     return (

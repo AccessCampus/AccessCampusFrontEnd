@@ -7,22 +7,38 @@ const campusList = [
     {
         campus: "ubc",
         color: "#0C2344",
-        image: ubcImg
+        image: ubcImg,
+        coords: {
+            lat: 49.2621294,
+            lng: -123.249704
+        }
     },
     {
         campus: "sfu",
         color: "#CD3D3D",
-        image: sfuImg
+        image: sfuImg,
+        coords: {
+            lat: 49.2780937,
+            lng: -122.9198833
+        }
     },
     {
         campus: "harvard",
         color: "#A41034",
-        image: harvardImg
+        image: harvardImg,
+        coords: {
+            lat: 42.3770068,
+            lng: -71.1188488,
+        }
     },
     {
-        campus: "google",
+        campus: "googleplex",
         color: "#3DDC84",
-        image: googleImg
+        image: googleImg,
+        coords: {
+            lat: 37.4220041,
+            lng: -122.0862462
+        }
     },
     // {
     //     campus: "shopify",

@@ -5,7 +5,7 @@ import CampusMap from '../campus-map/CampusMap';
 import BuildingSelector from '../building-selector/BuildingSelector';
 import dotenv from 'dotenv';
 
-const CampusPage = ({ campus, color, index }) => {
+const CampusPage = ({ campus, color, index, coords }) => {
     dotenv.config();
     const [buildingName, setBuildingName] = useState("");
     const [buildings, setBuildings] = useState([]);
@@ -31,6 +31,7 @@ const CampusPage = ({ campus, color, index }) => {
                         index={index}
                         campus={campus}
                         color={color}
+                        coords={coords}
                         buildings={buildings}
                         buildingName={buildingName}
                     />
