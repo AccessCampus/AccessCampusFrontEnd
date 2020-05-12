@@ -3,8 +3,8 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import dotenv from 'dotenv';
 
 const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
-    const [entranceLocations, setEntranceLocations] = useState([]);
     dotenv.config();
+    const [entranceLocations, setEntranceLocations] = useState([]);
 
     function getEntranceLocations() {
         for (let building of buildings) {

@@ -3,14 +3,16 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import CampusMap from '../campus-map/CampusMap';
 import BuildingSelector from '../building-selector/BuildingSelector';
+import dotenv from 'dotenv';
 
 const CampusPage = ({ campus, color, index }) => {
+    dotenv.config();
     const [buildingName, setBuildingName] = useState("");
     const [buildings, setBuildings] = useState([]);
 
     useEffect(() => {
         async function getBuildings() {
-            const res = await axios.get("https://access-campus-api.herokuapp.com/api/buildings");
+            const res = await axios.get(process.env.ENTRANCES_API);
             setBuildings(res.data.data);
         }
         getBuildings();
