@@ -18,7 +18,7 @@ const BuildingSelector = ({ campus, buildings, handleBuildingChoice }) => {
                 native
                 onChange={handleBuildingChoice}
             >
-                {buildings.length === 0 ?
+                {(buildings.length === 0 || campus !== "ubc") ?
                     <option
                         value={"none"}
                         key={"none"}
