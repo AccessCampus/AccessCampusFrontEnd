@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import dotenv from 'dotenv';
 
 const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
     dotenv.config();
-    const [entranceLocations, setEntranceLocations] = useState([]);
+    const [entrances, setEntrances] = useState([]);
 
-    function getEntranceLocations() {
+    function getEntrances() {
         for (let building of buildings) {
             if (building.name === buildingName) {
-                return building.entrances;
+                return returnConvertedEntrances(building.entrances);
             }
         }
         return [];
     }
 
+    function returnConvertedEntrances(apiEntrances) {
+        let result = apiEntrances.map((entrance) => (
+            { lat: entrance.lat, lng: entrance.long }
+        ));
+        return result;
+    }
+
     useEffect(() => {
-        setEntranceLocations([]);
-        setEntranceLocations(getEntranceLocations());
+        setEntrances([]);
+        setEntrances(getEntrances());
+        console.log(entrances);
     }, [buildings, buildingName]);
 
     const mapStyles = {
@@ -26,7 +34,7 @@ const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
     }
 
     const defaultCenter = {
-        lat: 41.3851, lng: 2.1734
+        lat: 49.2621294, lng: -123.249704
     }
 
     return (
@@ -37,9 +45,17 @@ const CampusMap = ({ campus, color, index, buildingName, buildings }) => {
                     mapContainerStyle={mapStyles}
                     zoom={13}
                     center={defaultCenter}
-                />
+                >
+                    {entrances.map((entrance, index) => (
+                        <Marker
+                            key={index}
+                            position={{ lat: entrance.lat, lng: entrance.lng }}>
+                        </Marker>
+                    ))}
+
+                </GoogleMap>
             </LoadScript>
-        </div>
+        </div >
     );
 };
 
