@@ -1,4 +1,4 @@
-# AccessCampusFrontEnd
+# Access Campus
 Front end for AccessCampus
 
 Built using:
@@ -14,3 +14,5 @@ Other behind the scenes:
 - ESLint
 - Prettier
 - Babel
+- Google Maps API
+- Access Campus API
