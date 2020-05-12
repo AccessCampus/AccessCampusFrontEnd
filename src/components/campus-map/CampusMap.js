@@ -6,16 +6,26 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
     dotenv.config();
     const [entrances, setEntrances] = useState([]);
 
+    useEffect(() => {
+        setEntrances([]);
+        setEntrances(getEntrances());
+    }, [buildings, buildingName]);
+
+    const mapStyles = {
+        height: "75vh",
+        width: "87%",
+    }
+
     function getEntrances() {
         for (let building of buildings) {
             if (building.name === buildingName) {
-                return returnConvertedEntrances(building.entrances);
+                return getConvertedEntrances(building.entrances);
             }
         }
         return [];
     }
 
-    function returnConvertedEntrances(apiEntrances) {
+    function getConvertedEntrances(apiEntrances) {
         let result = apiEntrances.map((entrance) => (
             { lat: entrance.lat, lng: entrance.long }
         ));
@@ -34,16 +44,6 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
         return { lat: lat, lng: lng }
     }
 
-    useEffect(() => {
-        setEntrances([]);
-        setEntrances(getEntrances());
-    }, [buildings, buildingName]);
-
-    const mapStyles = {
-        height: "75vh",
-        width: "85%",
-    }
-
     const mapCenter = entrances.length === 0 ?
         coords :
         calculateCenter();
@@ -51,6 +51,10 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
     const mapZoom = entrances.length === 0 ?
         13 :
         18;
+
+    const onMarkerClick = (lat, lng) => {
+        window.open(`http://maps.google.com/maps?q=loc:${lat},${lng}`, "_blank")
+    }
 
     return (
         <div className="campus-map">
@@ -64,12 +68,12 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
                     {entrances.map((entrance, index) => (
                         <Marker
                             key={index}
-                            position={{ lat: entrance.lat, lng: entrance.lng }}>
+                            position={{ lat: entrance.lat, lng: entrance.lng }}
+                            onClick={() => onMarkerClick(entrance.lat, entrance.lng)} >
                         </Marker>
                     ))}
-
                 </GoogleMap>
-            </LoadScript>
+            </LoadScript >
         </div >
     );
 };
