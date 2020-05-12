@@ -1,6 +1,8 @@
 # Access Campus
 Front end for AccessCampus
 
+Entrances available for select UBC buildings
+
 Built using:
 - React
 - Parcel (NOT create-react-app)
