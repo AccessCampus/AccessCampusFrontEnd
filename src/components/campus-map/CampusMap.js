@@ -53,7 +53,7 @@ const CampusMap = ({ coords, buildingName, buildings }) => {
         calculateCenter();
 
     const mapZoom = entrances.length === 0 ?
-        13.3 :
+        14 :
         17.5;
 
     const onMarkerClick = (lat, lng) => {
