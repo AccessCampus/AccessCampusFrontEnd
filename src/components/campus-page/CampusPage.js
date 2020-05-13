@@ -25,7 +25,7 @@ const CampusPage = ({ campus, color, index, coords }) => {
     return (
         <div className="campus-page">
             <Grid container>
-                <Grid item xs={12} md={6} item>
+                <Grid item xs={12} item align={"center"}>
                     <CampusMap
                         key={index}
                         index={index}
@@ -36,7 +36,7 @@ const CampusPage = ({ campus, color, index, coords }) => {
                         buildingName={buildingName}
                     />
                 </Grid>
-                <Grid item xs={12} md={6} item>
+                <Grid item xs={12} item align={"center"}>
                     <BuildingSelector
                         campus={campus}
                         buildings={buildings}

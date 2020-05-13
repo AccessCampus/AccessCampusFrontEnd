@@ -14,6 +14,8 @@ const CampusMap = ({ campus, color, index, coords, buildingName, buildings }) =>
     const mapStyles = {
         height: "75vh",
         width: "87%",
+        maxWidth: 900,
+        marginBottom: 30,
     }
 
     function getEntrances() {
