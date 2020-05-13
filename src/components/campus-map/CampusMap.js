@@ -12,10 +12,12 @@ const CampusMap = ({ coords, buildingName, buildings }) => {
     }, [buildings, buildingName]);
 
     const mapStyles = {
-        height: "75vh",
+        height: "50vh",
         width: "87%",
         maxWidth: 900,
         marginBottom: 30,
+        border: "solid #CCCCCC 6px",
+        borderRadius: 15
     }
 
     function getEntrances() {
@@ -51,8 +53,8 @@ const CampusMap = ({ coords, buildingName, buildings }) => {
         calculateCenter();
 
     const mapZoom = entrances.length === 0 ?
-        13 :
-        18;
+        13.3 :
+        17.5;
 
     const onMarkerClick = (lat, lng) => {
         window.open(`http://maps.google.com/maps?q=loc:${lat},${lng}`, "_blank")
