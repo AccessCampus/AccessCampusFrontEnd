@@ -1,4 +1,7 @@
 # Access Campus
+TODO:
+- More informative map and markers
+
 Front end for AccessCampus
 
 Entrances available for select UBC buildings
