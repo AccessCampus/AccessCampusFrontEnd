@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <Grid container className={footer.grid} align={"center"}>
             <Grid item xs={12}>
-                <a href="https://github.com/eyskim/AccessCampusFrontEnd">
+                <a href="https://github.com/eyskim/AccessCampusFrontEnd" target="_blank">
                     <FontAwesomeIcon
                         className={footer.icon}
                         icon={faGithubSquare}
@@ -20,7 +20,7 @@ const Footer = () => {
                         display={"inline"}
                     />
                 </a>
-                <a href="https://www.access-campus-api.app/api/">
+                <a href="https://www.access-campus-api.app/api/" target="_blank">
                     <FontAwesomeIcon
                         className={footer.icon}
                         icon={faDatabase}
