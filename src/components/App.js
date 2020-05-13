@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router } from '@reach/router';
 import { render } from 'react-dom';
+import { Header, Footer } from './layouts/index';
 import CampusCards from './campus-cards/CampusCards';
 import CampusPage from './campus-page/CampusPage';
 import campusList from '../data/campusList';
@@ -8,6 +9,7 @@ import campusList from '../data/campusList';
 const App = () => {
     return (
         <div className="app">
+            <Header />
             <Router>
                 <CampusCards path="/"
                     campusList={campusList}
@@ -23,6 +25,7 @@ const App = () => {
                     />
                 )}
             </Router>
+            <Footer />
         </div >
     )
 };
