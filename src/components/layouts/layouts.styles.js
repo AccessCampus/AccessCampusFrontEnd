@@ -3,17 +3,33 @@ import { makeStyles } from '@material-ui/core/styles'
 const HeaderStyles = makeStyles({
     grid: {
         alignItems: "center",
-        alignContent: "center",
-        // textAlign: "center",
+        justify: "center",
         margin: "auto",
-        maxWidth: 1000
-    },
-
-    title: {
-        alignItems: "center",
-        margin: 10,
+        marginBottom: 30,
         maxWidth: 1000,
-    }
+        height: 100,
+        background: "#1DB954",
+    },
+    icon: {
+        borderRadius: 25,
+        padding: 10,
+        border: "3px solid #FFFFFF"
+    },
 });
 
-export { HeaderStyles };
+const FooterStyles = makeStyles({
+    grid: {
+        alignItems: "center",
+        justify: "center",
+        margin: "auto",
+        marginTop: 20,
+        maxWidth: 1000,
+        height: 100,
+        background: "#1DB954",
+    },
+    icon: {
+        padding: 30,
+    },
+})
+
+export { HeaderStyles, FooterStyles };

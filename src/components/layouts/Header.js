@@ -1,5 +1,6 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import { Link } from '@reach/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRoute } from '@fortawesome/free-solid-svg-icons';
 import { HeaderStyles } from './layouts.styles';
@@ -7,25 +8,21 @@ import { HeaderStyles } from './layouts.styles';
 const Header = () => {
     const header = HeaderStyles();
     return (
-        <header>
-            <FontAwesomeIcon
-                className={header.title}
-                icon={faRoute}
-                color="#000080"
-                size="5x"
-                display="inline"
-            />
-            <Typography
-                variant="h3"
-                className={header.title}
-                display="inline"
-            >
-                Access Campus
-            </Typography>
-        </header >
-    )
+        <Grid container className={header.grid}>
+            <Grid item xs={12} key={1} align={"center"} className={header.item}>
+                <Link to="/">
+                    <FontAwesomeIcon
+                        path="/"
+                        className={header.icon}
+                        icon={faRoute}
+                        color={"#FFFFFF"}
+                        size={"3x"}
+                        display={"inline"}
+                    />
+                </Link>
+            </Grid>
+        </Grid>
+    );
 }
-
-
 
 export default Header;
