@@ -37,21 +37,15 @@ const CampusMap = ({ coords, buildingName, buildings }) => {
     }
 
     function calculateCenter() {
-        // let lat = 0;
-        // let lng = 0;
-        // entrances.forEach(coord => {
-        //     lat += coord.lat;
-        //     lng += coord.lng;
-        // });
-        // lat = lat / entrances.length;
-        // lng = lng / entrances.length;
-        // return { lat: lat, lng: lng }
-        for (let building of buildings) {
-            if (building.name === buildingName) {
-                console.log(building)
-                return building.coords
-            }
-        }
+        let lat = 0;
+        let lng = 0;
+        entrances.forEach(coord => {
+            lat += coord.lat;
+            lng += coord.lng;
+        });
+        lat = lat / entrances.length;
+        lng = lng / entrances.length;
+        return { lat: lat, lng: lng }
     }
 
     const mapCenter = entrances.length === 0 ?
