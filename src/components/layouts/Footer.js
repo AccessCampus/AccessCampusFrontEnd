@@ -20,7 +20,7 @@ const Footer = () => {
                         display={"inline"}
                     />
                 </a>
-                <a href="https://www.access-campus-api.app/api/" target="_blank">
+                <a href="https://www.access-campus-api.app/api/buildings" target="_blank">
                     <FontAwesomeIcon
                         className={footer.icon}
                         icon={faDatabase}

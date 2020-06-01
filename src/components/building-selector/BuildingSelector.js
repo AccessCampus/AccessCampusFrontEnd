@@ -16,9 +16,9 @@ const BuildingSelector = ({ campus, buildings, handleBuildingChoice }) => {
             <Select
                 variant="outlined"
                 native
-                onChange={handleBuildingChoice}
+                onClick={handleBuildingChoice}
             >
-                {(buildings.length === 0 || campus !== "ubc") ?
+                {buildings.length === 0 ?
                     <option
                         value={"none"}
                         key={"none"}
@@ -34,9 +34,9 @@ const BuildingSelector = ({ campus, buildings, handleBuildingChoice }) => {
                         Choose a building to find entrances for below:
                     </option>]
                         .concat(
-                            buildings.map(building => (
+                            buildings.map((building, index) => (
                                 <option
-                                    key={building.id}
+                                    key={index}
                                     value={building.name}
                                 >
                                     {building.name}

@@ -31,7 +31,7 @@ const CampusMap = ({ coords, buildingName, buildings }) => {
 
     function getConvertedEntrances(apiEntrances) {
         let result = apiEntrances.map((entrance) => (
-            { lat: entrance.lat, lng: entrance.long }
+            { lat: entrance.coords.lat, lng: entrance.coords.lng }
         ));
         return result;
     }
