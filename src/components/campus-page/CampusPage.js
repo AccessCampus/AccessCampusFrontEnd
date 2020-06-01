@@ -8,17 +8,6 @@ import dotenv from 'dotenv';
 const CampusPage = ({ campus, color, index, coords, buildings }) => {
     dotenv.config();
     const [buildingName, setBuildingName] = useState("");
-    // const [buildings, setBuildings] = useState([]);
-
-    console.log(buildings);
-
-    // useEffect(() => {
-    //     async function getBuildings() {
-    //         const res = await axios.get(process.env.ENTRANCES_API);
-    //         setBuildings(res.data.data);
-    //     }
-    //     getBuildings();
-    // }, [buildingName]);
 
     const handleBuildingChoice = e => {
         setBuildingName(e.target.value)

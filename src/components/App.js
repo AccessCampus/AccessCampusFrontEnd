@@ -26,7 +26,6 @@ const App = () => {
                 })
             });
             setCampusList(tempCampuses);
-            console.log(tempCampuses);
         }
         getCampuses();
     }, []);
