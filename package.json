@@ -56,6 +56,7 @@
     "@types/react": "^16.9.34",
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
+    "font": "0.0.4",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

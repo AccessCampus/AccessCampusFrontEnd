@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Router } from '@reach/router';
 import { render } from 'react-dom';
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner, faSpin } from '@fortawesome/free-solid-svg-icons'
 import { Header, Footer } from './layouts/index';
 import CampusCards from './campus-cards/CampusCards';
 import CampusPage from './campus-page/CampusPage';
@@ -45,7 +47,13 @@ const App = () => {
 
     return (
         campusList.length == 0 ?
-            <h1>Loading</h1> :
+            <div>
+                <h1>Loading</h1>
+                <span>
+                    <FontAwesomeIcon size={"3x"} icon={faSpinner} spin />
+                </span>
+            </div>
+            :
             <div className="app">
                 <Header />
                 <Router>
