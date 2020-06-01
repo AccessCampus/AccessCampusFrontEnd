@@ -16,7 +16,7 @@ const BuildingSelector = ({ campus, buildings, handleBuildingChoice }) => {
             <Select
                 variant="outlined"
                 native
-                onChange={handleBuildingChoice}
+                onClick={handleBuildingChoice}
             >
                 {buildings.length === 0 ?
                     <option

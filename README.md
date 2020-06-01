@@ -1,12 +1,16 @@
 # Access Campus
+
 TODO:
+
 - More informative map and markers
+- Must make first click on selector dropdown work
 
 Front end for AccessCampus
 
 Entrances available for select UBC buildings
 
 Built using:
+
 - React
 - Parcel (NOT create-react-app)
 - Material-UI
@@ -16,6 +20,7 @@ Built using:
 By adding campus information to campusList.js, all the data will propagate down through the application
 
 Other behind the scenes:
+
 - ESLint
 - Prettier
 - Babel
