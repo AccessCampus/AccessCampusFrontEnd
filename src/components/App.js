@@ -7,29 +7,42 @@ import CampusCards from './campus-cards/CampusCards';
 import CampusPage from './campus-page/CampusPage';
 
 const App = () => {
-    const [campusList, setCampusList] = useState([{
-        campus: "blank",
-        color: "#000",
-        coords: { lat: 0, long: 0 },
-    }]);
+    const [campusList, setCampusList] = useState([]);
     useEffect(() => {
         async function getCampuses() {
-            const res = await axios.get("http://localhost:4000/api/campuses");
-            let tempList = [];
-            res.data.data.forEach(data => {
-                tempList.push({
-                    campus: data.attributes.acronym,
-                    color: data.attributes["theme-color"],
-                    coords: data.attributes.coords
+            const campuses = await axios.get("http://localhost:4000/api/campuses");
+            const buildings = await axios.get("http://localhost:4000/api/buildings")
+            let tempBuildings = {};
+            let tempCampuses = [];
+            buildings.data.data.forEach(building => {
+                createBuilding(building, tempBuildings);
+            });
+            campuses.data.data.forEach(campus => {
+                tempCampuses.push({
+                    campus: campus.attributes.acronym,
+                    color: campus.attributes["theme-color"],
+                    coords: campus.attributes.coords,
+                    buildings: tempBuildings[campus.attributes.acronym]
                 })
             });
-            setCampusList(tempList);
+            setCampusList(tempCampuses);
+            console.log(tempCampuses);
         }
         getCampuses();
     }, []);
 
+    function createBuilding(building, tempBuildings) {
+        let newObj = {}
+        newObj[building.attributes.name] = building.attributes.entrances
+        if (tempBuildings[building.attributes["campus-name"]] === undefined) {
+            tempBuildings[building.attributes["campus-name"]] = [newObj];
+        } else {
+            tempBuildings[building.attributes["campus-name"]].push(newObj);
+        }
+    }
+
     return (
-        campusList.length == 1 ?
+        campusList.length == 0 ?
             <h1>Loading</h1> :
             <div className="app">
                 <Header />
