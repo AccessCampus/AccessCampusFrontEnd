@@ -32,8 +32,11 @@ const App = () => {
     }, []);
 
     function createBuilding(building, tempBuildings) {
-        let newObj = {}
-        newObj[building.attributes.name] = building.attributes.entrances
+        let newObj = {
+            name: building.attributes.name,
+            coords: building.attributes.coords,
+            entrances: building.attributes.entrances
+        }
         if (tempBuildings[building.attributes["campus-name"]] === undefined) {
             tempBuildings[building.attributes["campus-name"]] = [newObj];
         } else {
