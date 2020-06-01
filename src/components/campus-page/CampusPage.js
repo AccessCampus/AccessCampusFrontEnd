@@ -10,13 +10,13 @@ const CampusPage = ({ campus, color, index, coords }) => {
     const [buildingName, setBuildingName] = useState("");
     const [buildings, setBuildings] = useState([]);
 
-    useEffect(() => {
-        async function getBuildings() {
-            const res = await axios.get(process.env.ENTRANCES_API);
-            setBuildings(res.data.data);
-        }
-        getBuildings();
-    }, [buildingName]);
+    // useEffect(() => {
+    //     async function getBuildings() {
+    //         const res = await axios.get(process.env.ENTRANCES_API);
+    //         setBuildings(res.data.data);
+    //     }
+    //     getBuildings();
+    // }, [buildingName]);
 
     const handleBuildingChoice = e => {
         setBuildingName(e.target.value)
