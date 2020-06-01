@@ -10,8 +10,8 @@ const App = () => {
     const [campusList, setCampusList] = useState([]);
     useEffect(() => {
         async function getCampuses() {
-            const campuses = await axios.get("http://localhost:4000/api/campuses");
-            const buildings = await axios.get("http://localhost:4000/api/buildings")
+            const campuses = await axios.get("https://www.access-campus-api.app/api/campuses");
+            const buildings = await axios.get("https://www.access-campus-api.app/api/buildings")
             let tempBuildings = {};
             let tempCampuses = [];
             buildings.data.data.forEach(building => {
