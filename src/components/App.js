@@ -3,7 +3,7 @@ import { Router } from '@reach/router';
 import { render } from 'react-dom';
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner, faSpin } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { Header, Footer } from './layouts/index';
 import CampusCards from './campus-cards/CampusCards';
 import CampusPage from './campus-page/CampusPage';
