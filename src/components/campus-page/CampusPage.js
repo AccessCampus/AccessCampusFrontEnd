@@ -5,10 +5,12 @@ import CampusMap from '../campus-map/CampusMap';
 import BuildingSelector from '../building-selector/BuildingSelector';
 import dotenv from 'dotenv';
 
-const CampusPage = ({ campus, color, index, coords }) => {
+const CampusPage = ({ campus, color, index, coords, buildings }) => {
     dotenv.config();
     const [buildingName, setBuildingName] = useState("");
-    const [buildings, setBuildings] = useState([]);
+    // const [buildings, setBuildings] = useState([]);
+
+    console.log(buildings);
 
     // useEffect(() => {
     //     async function getBuildings() {

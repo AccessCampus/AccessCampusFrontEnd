@@ -53,7 +53,7 @@ const App = () => {
                     <CampusCards path="/"
                         campusList={campusList}
                     />
-                    {campusList.map(({ campus, color, coords }, index) =>
+                    {campusList.map(({ campus, color, coords, buildings }, index) =>
                         <CampusPage
                             key={index}
                             index={index}
@@ -61,6 +61,7 @@ const App = () => {
                             campus={campus}
                             color={color}
                             coords={coords}
+                            buildings={buildings}
                         />
                     )}
                 </Router>
