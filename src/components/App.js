@@ -29,25 +29,27 @@ const App = () => {
     }, []);
 
     return (
-        <div className="app">
-            <Header />
-            <Router>
-                <CampusCards path="/"
-                    campusList={campusList}
-                />
-                {campusList.map(({ campus, color, coords }, index) =>
-                    <CampusPage
-                        key={index}
-                        index={index}
-                        path={`/${campus}`}
-                        campus={campus}
-                        color={color}
-                        coords={coords}
+        campusList.length == 1 ?
+            <h1>Loading</h1> :
+            <div className="app">
+                <Header />
+                <Router>
+                    <CampusCards path="/"
+                        campusList={campusList}
                     />
-                )}
-            </Router>
-            <Footer />
-        </div >
+                    {campusList.map(({ campus, color, coords }, index) =>
+                        <CampusPage
+                            key={index}
+                            index={index}
+                            path={`/${campus}`}
+                            campus={campus}
+                            color={color}
+                            coords={coords}
+                        />
+                    )}
+                </Router>
+                <Footer />
+            </div >
     )
 };
 
