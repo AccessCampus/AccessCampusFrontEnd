@@ -1,28 +1,12 @@
-# Access Campus
+# Access Campus Front End
 
-TODO:
+Repository containing the client application for [AccessCampus](https://www.access-campus.app/).
 
-- More informative map and markers
-- Must make first click on selector dropdown work
-
-Front end for AccessCampus
-
-Entrances available for select UBC buildings
+Entrances available for select Campus buildings using data from the [AccessCampus API](https://www.access-campus-api.app/api/buildings).
 
 Built using:
 
 - React
-- Parcel (NOT create-react-app)
+- Parcel
 - Material-UI
-
-"npm run dev" from root directory to start
-
-By adding campus information to campusList.js, all the data will propagate down through the application
-
-Other behind the scenes:
-
-- ESLint
-- Prettier
-- Babel
 - Google Maps API
-- Access Campus API
