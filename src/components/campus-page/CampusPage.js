@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
-import axios from 'axios';
 import CampusMap from '../campus-map/CampusMap';
 import BuildingSelector from '../building-selector/BuildingSelector';
 import dotenv from 'dotenv';
